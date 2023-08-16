@@ -1,0 +1,96 @@
+$serif-font: 'Roboto Slab', serif;
+$sans-serif-font: 'Montserrat', sans-serif;
+$primary-background: #f9f8f7;
+$orange: #fb6e05;
+$blue: #01a2e2;
+$primary-text: #5e5b62;
+
+body {
+    margin: 0;
+    font-family: $sans-serif-font;
+  }
+  
+.exercise-header {
+    padding: 1rem 0;
+    margin: 2rem 0;
+    text-align: center;
+    color: $primary-background;
+    background-color: #00a4bd;
+}
+
+.testimonial-container {
+    display: flex;
+    align-items: center;
+    width: 53%;
+    margin: auto;
+    color: $primary-text;
+
+    div {
+        position: relative;
+        border-left: 2px solid $orange;
+        padding-left: 1.6rem;
+        padding-right: 1.6rem;
+        margin-left: 1.2rem;
+
+        &:before {
+            position: absolute;
+            top: -22px; /* Adjust as needed */
+            left: -22px; /* Adjust as needed */
+            width: 40px; /* Adjust as needed */
+            height: 40px; /* Adjust as needed */
+            border-radius: 50%;
+            border: 2px solid white;
+            display: flex;
+            background-color: $orange;
+            justify-content: center;
+            line-height: 1.3;
+            font-size: 45px; /* Adjust as needed */
+            font-family: 'Times New Roman', Times, serif;
+            color: white;
+            content: "\201C"; /* Unicode code for opening quotation mark */
+        }
+        
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: 0; /* Adjust as needed */
+            left: -1px;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: $orange;
+        }
+
+        p {
+            font-family: $serif-font;
+            line-height: 1.5;
+            font-size: 20px;
+            font-weight: 300;
+        }
+
+        span {
+            font-weight: 700;
+            font-size: 10pt;
+        }
+
+    }
+
+    a {
+        background-color: $blue;
+        color: white;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 10pt;
+        padding: 1.5rem 2.5rem;
+        width: 20%;
+        white-space: nowrap;
+        border-radius: 4px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+}
+
