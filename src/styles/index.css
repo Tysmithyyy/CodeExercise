@@ -1,7 +1,12 @@
 @charset "UTF-8";
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   margin: 0;
+  color: #5e5b62;
 }
 
 .exercise-header {
@@ -97,6 +102,224 @@ body {
 .testimonial-container a:hover {
   cursor: pointer;
   background-color: #18bdfe;
+}
+
+.filters-container {
+  display: flex;
+  padding: 15px;
+  border-bottom: 1px solid #5e5b62;
+}
+
+.select-filters {
+  display: flex;
+}
+
+.other-filters {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-end;
+}
+.other-filters button {
+  background-color: transparent;
+  color: #01a2e2;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10pt;
+  font-weight: 700;
+  text-decoration: underline;
+  border: none;
+  padding: 10px;
+  margin: 15px;
+}
+.other-filters button:hover {
+  cursor: pointer;
+}
+.other-filters button:focus {
+  background-color: #eeebe8;
+  border-color: #01a2e2;
+}
+
+.toggle-container {
+  padding: 10px;
+}
+.toggle-container label {
+  padding: 5px;
+}
+
+.media-page {
+  width: 95%;
+  margin: auto;
+  border: 1px solid #5e5b62;
+}
+
+.media-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 5px;
+}
+
+.media-card {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+}
+.media-card img {
+  width: 95%;
+  margin: auto;
+}
+.media-card h2 {
+  font-size: 14pt;
+  font-weight: 700;
+}
+.media-card p {
+  font-size: 10pt;
+  font-weight: 700;
+}
+
+.genre-filter,
+.year-filter {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  background-color: #f0f0f0;
+  color: #5e5b62;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12pt;
+  font-weight: 700;
+  padding: 20px 10px;
+  cursor: pointer;
+  border-bottom: solid #5e5b62;
+  border-width: 0 0 2px 0;
+  position: relative;
+  height: 30px;
+  width: 140px;
+}
+.dropdown-toggle span {
+  padding-left: 10px;
+}
+
+.dropdown-options {
+  position: absolute;
+  background-color: #fff;
+  max-height: 0px;
+  overflow-y: auto;
+  margin-top: 10px;
+  display: block;
+  visibility: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.dropdown.open .dropdown-options {
+  max-height: 300px;
+  border: 1px solid #5e5b62;
+  visibility: visible;
+}
+.dropdown.open .triangle,
+.dropdown.open .triangle-border {
+  display: inline-block;
+}
+
+.triangle,
+.triangle-border {
+  content: "";
+  display: none;
+  width: 0;
+  height: 0;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid white;
+  top: 33px;
+  left: 25px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.triangle-border {
+  top: 31px;
+  left: 23px;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 12px solid #5e5b62;
+}
+
+input[type=checkbox] {
+  appearance: none;
+  -webkit-appearance: none;
+  -mox-apperance: none;
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  margin-right: 10px;
+  border: 1px solid #5e5b62;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+input[type=checkbox]:checked:before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  width: 5px;
+  height: 9px;
+  border: solid #5e5b62;
+  border-width: 0 3px 3px 0;
+  margin-left: 1px;
+  transform: rotate(45deg) translate(-50%, -50%);
+  z-index: 2;
+}
+
+.dropdown-options label {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 10pt;
+  font-weight: 700;
+  position: relative;
+  cursor: pointer;
+  padding: 10px;
+  white-space: nowrap;
+  border-bottom: 1px solid #5e5b62;
+  width: 100%;
+}
+.dropdown-options label:hover {
+  background-color: #eeebe8;
+}
+.dropdown-options input[type=checkbox]:focus + label {
+  background-color: #eeebe8;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-bar {
+  width: 250px;
+  height: 2.5rem;
+  padding: 10px;
+}
+
+.search-icon {
+  position: absolute;
+  transform: translateY(30%);
+  right: 8px;
+  color: #5e5b62;
 }
 
 /*# sourceMappingURL=index.css.map */

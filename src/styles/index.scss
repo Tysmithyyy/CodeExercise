@@ -42,9 +42,14 @@ $screen-xl-min: 1201px;
   }
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: $sans-serif-font;
   margin: 0;
+  color: $primary-text;
 }
 
 .exercise-header {
@@ -54,6 +59,8 @@ body {
   padding: 1rem 0;
   margin: 2rem 0;
 }
+
+// css for exercise one
 
 .testimonial-container {
   color: $primary-text;
@@ -144,4 +151,239 @@ body {
       background-color: lighten($blue, 10%);
     }
   }
+}
+
+// end css for exercise one
+
+.filters-container {
+  display: flex;
+  padding: 15px;
+  border-bottom: 1px solid $primary-text;
+}
+
+.select-filters {
+  display: flex;
+}
+
+.other-filters {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-end;
+
+  button {
+    background-color: transparent;
+    color: $blue;
+    text-transform: uppercase;
+    font-family: $sans-serif-font;
+    font-size: 10pt;
+    font-weight: 700;
+    text-decoration: underline;
+    border: none;
+    padding: 10px;
+    margin: 15px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus {
+      background-color: darken($primary-background, 5%);
+      border-color: $blue;
+    }
+  }
+}
+
+.toggle-container {
+  padding: 10px;
+
+  label {
+    padding: 5px;
+  }
+}
+
+.media-page {
+  width: 95%;
+  margin: auto;
+  border: 1px solid $primary-text;
+}
+
+.media-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 5px;
+}
+
+.media-card {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+
+  img {
+    width: 95%;
+    margin: auto;
+  }
+
+  h2 {
+    font-size: 14pt;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 10pt;
+    font-weight: 700;
+  }
+}
+
+.genre-filter,
+.year-filter {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  background-color: #f0f0f0;
+  color: $primary-text;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
+  font-family: $sans-serif-font;
+  font-size: 12pt;
+  font-weight: 700;
+  padding: 20px 10px;
+  cursor: pointer;
+  border-bottom: solid $primary-text;
+  border-width: 0 0 2px 0;
+  position: relative;
+  height: 30px;
+  width: 140px;
+
+  span {
+    padding-left: 10px;
+  }
+}
+
+.dropdown-options {
+  position: absolute;
+  background-color: #fff;
+  max-height: 0px;
+  overflow-y: auto;
+  margin-top: 10px;
+  display: block;
+  visibility: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.dropdown.open {
+  .dropdown-options {
+    max-height: 300px;
+    border: 1px solid $primary-text;
+    visibility: visible;
+  }
+  .triangle,
+  .triangle-border {
+    display: inline-block;
+  }
+}
+
+.triangle,
+.triangle-border {
+  content: "";
+  display: none;
+  width: 0;
+  height: 0;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid white;
+  top: 33px;
+  left: 25px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.triangle-border {
+  top: 31px;
+  left: 23px;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 12px solid $primary-text;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -mox-apperance: none;
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  margin-right: 10px;
+  border: 1px solid $primary-text;
+  border-radius: 4px;
+  vertical-align: middle;
+
+  &:checked:before {
+    content: "";
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    width: 5px;
+    height: 9px;
+    border: solid $primary-text;
+    border-width: 0 3px 3px 0;
+    margin-left: 1px;
+    transform: rotate(45deg) translate(-50%, -50%);
+    z-index: 2;
+  }
+}
+
+.dropdown-options {
+  label {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 10pt;
+    font-weight: 700;
+    position: relative;
+    cursor: pointer;
+    padding: 10px;
+    white-space: nowrap;
+    border-bottom: 1px solid $primary-text;
+    width: 100%;
+
+    &:hover {
+      background-color: darken($primary-background, 5%);
+    }
+  }
+
+  input[type="checkbox"]:focus + label {
+    background-color: darken($primary-background, 5%);
+  }
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-bar {
+  width: 250px;
+  height: 2.5rem;
+  padding: 10px;
+}
+
+.search-icon {
+  position: absolute;
+  transform: translateY(30%);
+  right: 8px;
+  color: $primary-text;
 }
