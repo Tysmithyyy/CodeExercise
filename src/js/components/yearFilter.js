@@ -37,7 +37,7 @@ function YearFilter({ allYears, onSelectYear, selectedYears }) {
   return (
     <div className="year-filter">
       <div className={`dropdown ${isOpen ? 'open' : ''}`} ref={dropdownRef}>
-      <button className="dropdown-toggle" onClick={toggleDropdown} tabindex="0">
+      <button className="dropdown-toggle" onClick={toggleDropdown} tabIndex="0">
           Year
           {isOpen ?
             <span className="material-symbols-outlined">expand_less</span> : <span className="material-symbols-outlined">expand_more</span>
@@ -47,7 +47,7 @@ function YearFilter({ allYears, onSelectYear, selectedYears }) {
         <div className='triangle'></div>
         <div className="dropdown-options">
           {allYears.map(year => (
-            <label htmlFor={year} className="checkbox-label">
+            <label htmlFor={year} key={year} className="checkbox-label">
               <input 
                 type="checkbox" 
                 id={year} 

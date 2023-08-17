@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+// Fuse.js for fuzzy search
+import Fuse from 'fuse.js';
 import DisplayMoviesBooks from './components/displayMoviesBooks.js';
 import GenreFilter from './components/genreFilter.js';
 import YearFilter from './components/yearFilter.js';
@@ -14,6 +16,7 @@ function MediaPage() {
   const [allYears, setAllYears] = useState([]);
   const [mediaType, setMediaType] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
   const [mediaData, setMediaData] = useState([]);
 
   useEffect(() => {
@@ -23,11 +26,8 @@ function MediaPage() {
         setMediaData(allData);
         const genres = getAllGenres(allData);
         setAllGenres(genres);
-        console.log(allGenres)
-
         const years = getAllYears(allData);
         setAllYears(years);
-        console.log(allYears)
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -49,6 +49,21 @@ function MediaPage() {
     setMediaType(mediaType);
   };
 
+  const handleSearchQuery = (searchQuery) => {
+    const fuseOptions = {
+      keys: ['title'],
+      threshold: 0.5,
+    };
+  
+    const fuse = new Fuse(mediaData, fuseOptions);
+  
+    const searchResults = fuse.search(searchQuery);
+
+    console.log('search results: ' + searchResults)
+    
+    setSearchResults(searchResults)
+  }
+
   const clearFilters = () => {
     setSelectedGenres([]);
     setSelectedYears([]);
@@ -60,11 +75,9 @@ function MediaPage() {
     const matchesGenre = selectedGenres.length === 0 || selectedGenres.some((genre) => media.genre.includes(genre));
     const matchesYear = selectedYears.length === 0 || selectedYears.includes(media.year);
     const matchesType = mediaType === '' || media.type === mediaType;
-    const matchesSearch = media.title.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearch = media.title.includes(searchResults);
     return matchesGenre && matchesYear && matchesType && matchesSearch;
   });
-
-  console.log(filteredMovieData)
 
   return (
     <div className="media-page">
@@ -89,7 +102,10 @@ function MediaPage() {
           />
         </div>
         <div className='other-filters'>
-          <SearchBar value={searchQuery} onChange={setSearchQuery} />
+          <SearchBar 
+            value={searchQuery} 
+            onChange={handleSearchQuery}
+          />
           <button onClick={clearFilters}>Clear Filters</button>
         </div>
       </div>

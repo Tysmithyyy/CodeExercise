@@ -3,7 +3,7 @@ import React from 'react';
 function ToggleMovieBook({ selectedType, onMediaTypeChange }) {
   return (
     <div className='toggle-container'>
-        <label class="form-control">
+        <label className="form-control">
             <input 
                 type="radio" 
                 name="mediaType"
@@ -13,7 +13,7 @@ function ToggleMovieBook({ selectedType, onMediaTypeChange }) {
             />
             Movies
         </label>
-        <label class="form-control">
+        <label className="form-control">
             <input 
                 type="radio" 
                 name="mediaType"

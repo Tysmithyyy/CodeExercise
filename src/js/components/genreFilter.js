@@ -37,7 +37,7 @@ function GenreFilter({ allGenres, onSelectGenre, selectedGenres }) {
   return (
     <div className="genre-filter">
       <div className={`dropdown ${isOpen ? 'open' : ''}`} ref={dropdownRef}>
-        <button className="dropdown-toggle" onClick={toggleDropdown} tabindex="0">
+        <button className="dropdown-toggle" onClick={toggleDropdown} tabIndex="0">
           {selectedGenres.length > 1 ? `${selectedGenres.length} Genres` : 'Genre'}
           {isOpen ?
             <span className="material-symbols-outlined">expand_less</span> : <span className="material-symbols-outlined">expand_more</span>
@@ -47,7 +47,7 @@ function GenreFilter({ allGenres, onSelectGenre, selectedGenres }) {
         <div className='triangle'></div>
         <div className="dropdown-options">
           {allGenres.map(genre => (
-              <label htmlFor={genre} className="checkbox-label">
+              <label htmlFor={genre} key={genre} className="checkbox-label">
                 <input 
                   type="checkbox" 
                   id={genre} 
