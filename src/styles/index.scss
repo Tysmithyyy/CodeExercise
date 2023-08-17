@@ -1,96 +1,147 @@
-$serif-font: 'Roboto Slab', serif;
-$sans-serif-font: 'Montserrat', sans-serif;
+// Fonts
+$serif-font: "Roboto Slab", serif;
+$sans-serif-font: "Montserrat", sans-serif;
+
+// Colors
 $primary-background: #f9f8f7;
+$primary-text: #5e5b62;
 $orange: #fb6e05;
 $blue: #01a2e2;
-$primary-text: #5e5b62;
+
+// Small screens breakpoint
+$screen-sm-min: 501px;
+// Medium screens breakpoint
+$screen-md-min: 768px;
+// Large screens breakpoint
+$screen-lg-min: 1025px;
+// Extra-large screens breakpoint
+$screen-xl-min: 1201px;
+
+// Breakpoint mixins
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
 
 body {
-    margin: 0;
-    font-family: $sans-serif-font;
-  }
-  
+  font-family: $sans-serif-font;
+  margin: 0;
+}
+
 .exercise-header {
-    padding: 1rem 0;
-    margin: 2rem 0;
-    text-align: center;
-    color: $primary-background;
-    background-color: #00a4bd;
+  background-color: #00a4bd;
+  color: $primary-background;
+  text-align: center;
+  padding: 1rem 0;
+  margin: 2rem 0;
 }
 
 .testimonial-container {
-    display: flex;
-    align-items: center;
+  color: $primary-text;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+  margin: auto;
+  padding: 10px;
+
+  @include md {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  @include lg {
+    width: 75%;
+  }
+
+  @include xl {
     width: 53%;
-    margin: auto;
-    color: $primary-text;
+  }
 
-    div {
-        position: relative;
-        border-left: 2px solid $orange;
-        padding-left: 1.6rem;
-        padding-right: 1.6rem;
-        margin-left: 1.2rem;
+  div {
+    position: relative;
+    border-left: 2px solid $orange;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-bottom: 25px;
+    margin-left: 20px;
 
-        &:before {
-            position: absolute;
-            top: -22px; /* Adjust as needed */
-            left: -22px; /* Adjust as needed */
-            width: 40px; /* Adjust as needed */
-            height: 40px; /* Adjust as needed */
-            border-radius: 50%;
-            border: 2px solid white;
-            display: flex;
-            background-color: $orange;
-            justify-content: center;
-            line-height: 1.3;
-            font-size: 45px; /* Adjust as needed */
-            font-family: 'Times New Roman', Times, serif;
-            color: white;
-            content: "\201C"; /* Unicode code for opening quotation mark */
-        }
-        
-        &:after {
-            content: "";
-            position: absolute;
-            bottom: 0; /* Adjust as needed */
-            left: -1px;
-            transform: translateX(-50%);
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: $orange;
-        }
-
-        p {
-            font-family: $serif-font;
-            line-height: 1.5;
-            font-size: 20px;
-            font-weight: 300;
-        }
-
-        span {
-            font-weight: 700;
-            font-size: 10pt;
-        }
-
+    &:before {
+      content: "\201C"; /* Unicode code for opening quotation mark */
+      font-family: "Times New Roman", Times, serif;
+      font-size: 45px;
+      line-height: 1.3;
+      color: white;
+      background-color: $orange;
+      display: flex;
+      justify-content: center;
+      border-radius: 50%;
+      border: 2px solid white;
+      position: absolute;
+      top: -22px;
+      left: -22px;
+      width: 40px;
+      height: 40px;
     }
 
-    a {
-        background-color: $blue;
-        color: white;
-        text-transform: uppercase;
-        font-weight: 700;
-        font-size: 10pt;
-        padding: 1.5rem 2.5rem;
-        width: 20%;
-        white-space: nowrap;
-        border-radius: 4px;
-
-        &:hover {
-            cursor: pointer;
-        }
+    &:after {
+      content: "";
+      background-color: $orange;
+      border-radius: 50%;
+      position: absolute;
+      bottom: 0;
+      left: -1px;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 10px;
     }
 
+    p {
+      font-family: $serif-font;
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    span {
+      font-size: 10pt;
+      font-weight: 700;
+    }
+  }
+
+  a {
+    background-color: $blue;
+    transition: background-color 0.3s ease;
+    color: white;
+    text-transform: uppercase;
+    font-size: 10pt;
+    font-weight: 700;
+    white-space: nowrap;
+    border-radius: 4px;
+    padding: 25px 40px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: lighten($blue, 10%);
+    }
+  }
 }
-
