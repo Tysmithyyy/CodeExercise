@@ -27099,10 +27099,8 @@ var _fuseJs = require("fuse.js");
 var _fuseJsDefault = parcelHelpers.interopDefault(_fuseJs);
 var _displayMoviesBooksJs = require("./components/displayMoviesBooks.js");
 var _displayMoviesBooksJsDefault = parcelHelpers.interopDefault(_displayMoviesBooksJs);
-var _genreFilterJs = require("./components/genreFilter.js");
-var _genreFilterJsDefault = parcelHelpers.interopDefault(_genreFilterJs);
-var _yearFilterJs = require("./components/yearFilter.js");
-var _yearFilterJsDefault = parcelHelpers.interopDefault(_yearFilterJs);
+var _checkboxFilterJs = require("./components/checkboxFilter.js");
+var _checkboxFilterJsDefault = parcelHelpers.interopDefault(_checkboxFilterJs);
 var _toggleMovieBookJs = require("./components/toggleMovieBook.js");
 var _toggleMovieBookJsDefault = parcelHelpers.interopDefault(_toggleMovieBookJs);
 var _searchBarJs = require("./components/searchBar.js");
@@ -27180,19 +27178,21 @@ function MediaPage() {
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 className: "select-filters",
                                 children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _genreFilterJsDefault.default), {
-                                        allGenres: allGenres,
-                                        onSelectGenre: handleGenreChange,
-                                        selectedGenres: selectedGenres
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _checkboxFilterJsDefault.default), {
+                                        allFilters: allGenres,
+                                        onSelectFilter: handleGenreChange,
+                                        selectedFilters: selectedGenres,
+                                        filterType: "Genre"
                                     }, void 0, false, {
                                         fileName: "src/js/mediaPage.js",
-                                        lineNumber: 90,
+                                        lineNumber: 89,
                                         columnNumber: 13
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _yearFilterJsDefault.default), {
-                                        allYears: allYears,
-                                        onSelectYear: handleYearChange,
-                                        selectedYears: selectedYears
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _checkboxFilterJsDefault.default), {
+                                        allFilters: allYears,
+                                        onSelectFilter: handleYearChange,
+                                        selectedFilters: selectedYears,
+                                        filterType: "Year"
                                     }, void 0, false, {
                                         fileName: "src/js/mediaPage.js",
                                         lineNumber: 95,
@@ -27201,7 +27201,7 @@ function MediaPage() {
                                 ]
                             }, void 0, true, {
                                 fileName: "src/js/mediaPage.js",
-                                lineNumber: 89,
+                                lineNumber: 88,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarJsDefault.default), {
@@ -27209,13 +27209,13 @@ function MediaPage() {
                                 onChange: handleSearchQuery
                             }, void 0, false, {
                                 fileName: "src/js/mediaPage.js",
-                                lineNumber: 101,
+                                lineNumber: 102,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/js/mediaPage.js",
-                        lineNumber: 88,
+                        lineNumber: 87,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27226,7 +27226,7 @@ function MediaPage() {
                                 onMediaTypeChange: handleMediaTypeChange
                             }, void 0, false, {
                                 fileName: "src/js/mediaPage.js",
-                                lineNumber: 107,
+                                lineNumber: 108,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -27234,32 +27234,32 @@ function MediaPage() {
                                 children: "Clear Filters"
                             }, void 0, false, {
                                 fileName: "src/js/mediaPage.js",
-                                lineNumber: 111,
+                                lineNumber: 112,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/js/mediaPage.js",
-                        lineNumber: 106,
+                        lineNumber: 107,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/js/mediaPage.js",
-                lineNumber: 87,
+                lineNumber: 86,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _displayMoviesBooksJsDefault.default), {
                 mediaData: filteredMovieData
             }, void 0, false, {
                 fileName: "src/js/mediaPage.js",
-                lineNumber: 114,
+                lineNumber: 115,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/js/mediaPage.js",
-        lineNumber: 86,
+        lineNumber: 85,
         columnNumber: 5
     }, this);
 }
@@ -27274,7 +27274,7 @@ $RefreshReg$(_c, "MediaPage");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./components/displayMoviesBooks.js":"aprwr","./components/genreFilter.js":"cc2C6","./components/yearFilter.js":"coGQt","./components/toggleMovieBook.js":"bMpva","./components/searchBar.js":"6eKpv","./utils/apiService.js":"8Al6l","./utils/utils.js":"1vl8p","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","fuse.js":"4xnao"}],"aprwr":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./components/displayMoviesBooks.js":"aprwr","./components/toggleMovieBook.js":"bMpva","./components/searchBar.js":"6eKpv","./utils/apiService.js":"8Al6l","./utils/utils.js":"1vl8p","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","fuse.js":"4xnao","./components/checkboxFilter.js":"9YTCp"}],"aprwr":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$efb4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27286,55 +27286,74 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _noCoverArtPng = require("../../static/no-cover-art.png");
+var _noCoverArtPngDefault = parcelHelpers.interopDefault(_noCoverArtPng);
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 function DisplayMoviesBooks({ mediaData  }) {
+    const handleImageError = (e)=>{
+        e.target.src = (0, _noCoverArtPngDefault.default);
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "media-list",
-        children: mediaData.map((media, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "media-card",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                        src: media.poster,
-                        alt: media.title
-                    }, void 0, false, {
-                        fileName: "src/js/components/displayMoviesBooks.js",
-                        lineNumber: 12,
-                        columnNumber: 11
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                        children: [
-                            media.title,
-                            " (",
-                            media.year,
-                            ")"
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/js/components/displayMoviesBooks.js",
-                        lineNumber: 13,
-                        columnNumber: 11
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                        children: [
-                            "Genres:",
-                            " ",
-                            media.genre.map((genre)=>capitalizeFirstLetter(genre)).join(", ")
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/js/components/displayMoviesBooks.js",
-                        lineNumber: 16,
-                        columnNumber: 11
-                    }, this)
-                ]
-            }, index, true, {
-                fileName: "src/js/components/displayMoviesBooks.js",
-                lineNumber: 11,
-                columnNumber: 9
-            }, this))
+        children: mediaData.length > 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "media-list",
+            children: mediaData.map((media, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "media-card",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                            src: media.poster,
+                            alt: media.title,
+                            onError: handleImageError
+                        }, void 0, false, {
+                            fileName: "src/js/components/displayMoviesBooks.js",
+                            lineNumber: 19,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                            children: [
+                                media.title,
+                                " (",
+                                media.year,
+                                ")"
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/js/components/displayMoviesBooks.js",
+                            lineNumber: 24,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            children: [
+                                "Genres:",
+                                " ",
+                                media.genre.map((genre)=>capitalizeFirstLetter(genre)).join(", ")
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/js/components/displayMoviesBooks.js",
+                            lineNumber: 27,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, index, true, {
+                    fileName: "src/js/components/displayMoviesBooks.js",
+                    lineNumber: 18,
+                    columnNumber: 11
+                }, this))
+        }, void 0, false, {
+            fileName: "src/js/components/displayMoviesBooks.js",
+            lineNumber: 16,
+            columnNumber: 7
+        }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+            className: "no-results",
+            children: "Sorry, no results were found matching your search."
+        }, void 0, false, {
+            fileName: "src/js/components/displayMoviesBooks.js",
+            lineNumber: 37,
+            columnNumber: 9
+        }, this)
     }, void 0, false, {
         fileName: "src/js/components/displayMoviesBooks.js",
-        lineNumber: 9,
+        lineNumber: 14,
         columnNumber: 5
     }, this);
 }
@@ -27348,7 +27367,7 @@ $RefreshReg$(_c, "DisplayMoviesBooks");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gkKU3":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../../static/no-cover-art.png":"9BJ6r"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -27498,287 +27517,44 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"react-refresh/runtime":"786KC"}],"cc2C6":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$85cb = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$85cb.prelude(module);
+},{"react-refresh/runtime":"786KC"}],"9BJ6r":[function(require,module,exports) {
+module.exports = require("./helpers/bundle-url").getBundleURL("g05j8") + "no-cover-art.34806f3c.png" + "?" + Date.now();
 
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _s = $RefreshSig$();
-function GenreFilter({ allGenres , onSelectGenre , selectedGenres  }) {
-    _s();
-    const [isOpen, setIsOpen] = (0, _react.useState)(false);
-    const dropdownRef = (0, _react.useRef)(null);
-    const handleGenreChange = (event)=>{
-        const { id , checked  } = event.target;
-        const updatedGenres = checked ? [
-            ...selectedGenres,
-            id
-        ] : selectedGenres.filter((genre)=>genre !== id);
-        onSelectGenre(updatedGenres);
-    };
-    const toggleDropdown = ()=>{
-        setIsOpen(!isOpen);
-        if (!isOpen) {
-            const optionsContainer = dropdownRef.current.querySelector(".dropdown-options");
-            optionsContainer.scrollTop = 0;
-        }
-    };
-    const handleClickOutside = (event)=>{
-        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) setIsOpen(false);
-    };
-    (0, _react.useEffect)(()=>{
-        document.addEventListener("mousedown", handleClickOutside);
-        return ()=>{
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, []);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "dropdown-filter",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: `dropdown ${isOpen ? "open" : ""}`,
-            ref: dropdownRef,
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                    className: "dropdown-toggle",
-                    onClick: toggleDropdown,
-                    children: [
-                        selectedGenres.length > 1 ? `${selectedGenres.length} Genres` : "Genre",
-                        isOpen ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                            className: "material-symbols-outlined",
-                            children: "expand_less"
-                        }, void 0, false, {
-                            fileName: "src/js/components/genreFilter.js",
-                            lineNumber: 46,
-                            columnNumber: 13
-                        }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                            className: "material-symbols-outlined",
-                            children: "expand_more"
-                        }, void 0, false, {
-                            fileName: "src/js/components/genreFilter.js",
-                            lineNumber: 48,
-                            columnNumber: 13
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/js/components/genreFilter.js",
-                    lineNumber: 41,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "triangle-border"
-                }, void 0, false, {
-                    fileName: "src/js/components/genreFilter.js",
-                    lineNumber: 51,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "triangle"
-                }, void 0, false, {
-                    fileName: "src/js/components/genreFilter.js",
-                    lineNumber: 52,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "dropdown-options",
-                    children: allGenres.map((genre)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                            htmlFor: genre,
-                            className: "checkbox-label",
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                    type: "checkbox",
-                                    id: genre,
-                                    name: "genre",
-                                    onChange: handleGenreChange,
-                                    checked: selectedGenres.includes(genre)
-                                }, void 0, false, {
-                                    fileName: "src/js/components/genreFilter.js",
-                                    lineNumber: 56,
-                                    columnNumber: 15
-                                }, this),
-                                genre,
-                                " "
-                            ]
-                        }, genre, true, {
-                            fileName: "src/js/components/genreFilter.js",
-                            lineNumber: 55,
-                            columnNumber: 13
-                        }, this))
-                }, void 0, false, {
-                    fileName: "src/js/components/genreFilter.js",
-                    lineNumber: 53,
-                    columnNumber: 9
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "src/js/components/genreFilter.js",
-            lineNumber: 40,
-            columnNumber: 7
-        }, this)
-    }, void 0, false, {
-        fileName: "src/js/components/genreFilter.js",
-        lineNumber: 39,
-        columnNumber: 5
-    }, this);
+},{"./helpers/bundle-url":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
 }
-_s(GenreFilter, "uhOyve9TWk+bvhPJTPlaMsUEQAY=");
-_c = GenreFilter;
-exports.default = GenreFilter;
-var _c;
-$RefreshReg$(_c, "GenreFilter");
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+} // TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
 
-  $parcel$ReactRefreshHelpers$85cb.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"coGQt":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$9322 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$9322.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _s = $RefreshSig$();
-function YearFilter({ allYears , onSelectYear , selectedYears  }) {
-    _s();
-    const [isOpen, setIsOpen] = (0, _react.useState)(false);
-    const dropdownRef = (0, _react.useRef)(null);
-    const handleYearChange = (event)=>{
-        const { id , checked  } = event.target;
-        const updatedYears = checked ? [
-            ...selectedYears,
-            id
-        ] : selectedYears.filter((genre)=>genre !== id);
-        onSelectYear(updatedYears);
-    };
-    const toggleDropdown = ()=>{
-        setIsOpen(!isOpen);
-        if (!isOpen) {
-            const optionsContainer = dropdownRef.current.querySelector(".dropdown-options");
-            optionsContainer.scrollTop = 0;
-        }
-    };
-    const handleClickOutside = (event)=>{
-        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) setIsOpen(false);
-    };
-    (0, _react.useEffect)(()=>{
-        document.addEventListener("mousedown", handleClickOutside);
-        return ()=>{
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, []);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "dropdown-filter",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: `dropdown ${isOpen ? "open" : ""}`,
-            ref: dropdownRef,
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                    className: "dropdown-toggle",
-                    onClick: toggleDropdown,
-                    children: [
-                        "Year",
-                        isOpen ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                            className: "material-symbols-outlined",
-                            children: "expand_less"
-                        }, void 0, false, {
-                            fileName: "src/js/components/yearFilter.js",
-                            lineNumber: 44,
-                            columnNumber: 13
-                        }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                            className: "material-symbols-outlined",
-                            children: "expand_more"
-                        }, void 0, false, {
-                            fileName: "src/js/components/yearFilter.js",
-                            lineNumber: 46,
-                            columnNumber: 13
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/js/components/yearFilter.js",
-                    lineNumber: 41,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "triangle-border"
-                }, void 0, false, {
-                    fileName: "src/js/components/yearFilter.js",
-                    lineNumber: 49,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "triangle"
-                }, void 0, false, {
-                    fileName: "src/js/components/yearFilter.js",
-                    lineNumber: 50,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "dropdown-options",
-                    children: allYears.map((year)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                            htmlFor: year,
-                            className: "checkbox-label",
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                    type: "checkbox",
-                                    id: year,
-                                    name: "year",
-                                    onChange: handleYearChange,
-                                    checked: selectedYears.includes(year)
-                                }, void 0, false, {
-                                    fileName: "src/js/components/yearFilter.js",
-                                    lineNumber: 54,
-                                    columnNumber: 15
-                                }, this),
-                                year,
-                                " "
-                            ]
-                        }, year, true, {
-                            fileName: "src/js/components/yearFilter.js",
-                            lineNumber: 53,
-                            columnNumber: 13
-                        }, this))
-                }, void 0, false, {
-                    fileName: "src/js/components/yearFilter.js",
-                    lineNumber: 51,
-                    columnNumber: 9
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "src/js/components/yearFilter.js",
-            lineNumber: 40,
-            columnNumber: 7
-        }, this)
-    }, void 0, false, {
-        fileName: "src/js/components/yearFilter.js",
-        lineNumber: 39,
-        columnNumber: 5
-    }, this);
-}
-_s(YearFilter, "uhOyve9TWk+bvhPJTPlaMsUEQAY=");
-_c = YearFilter;
-exports.default = YearFilter;
-var _c;
-$RefreshReg$(_c, "YearFilter");
-
-  $parcel$ReactRefreshHelpers$9322.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bMpva":[function(require,module,exports) {
+},{}],"bMpva":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$a9f5 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -29246,6 +29022,132 @@ Fuse.config = Config;
 Fuse.parseQuery = parse;
 register(ExtendedSearch);
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["1xC6H","cVgJb","ebWYT"], "ebWYT", "parcelRequirec6bf")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9YTCp":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$74fe = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$74fe.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _s = $RefreshSig$();
+function CheckboxFilter({ allFilters , onSelectFilter , selectedFilters , filterType  }) {
+    _s();
+    const [isOpen, setIsOpen] = (0, _react.useState)(false);
+    const dropdownRef = (0, _react.useRef)(null);
+    const handleChange = (event)=>{
+        const { id , checked  } = event.target;
+        const updatedFilters = checked ? [
+            ...selectedFilters,
+            id
+        ] : selectedFilters.filter((genre)=>genre !== id);
+        onSelectFilter(updatedFilters);
+    };
+    const toggleDropdown = ()=>{
+        setIsOpen(!isOpen);
+        if (!isOpen) {
+            const optionsContainer = dropdownRef.current.querySelector(".dropdown-options");
+            optionsContainer.scrollTop = 0;
+        }
+    };
+    const handleClickOutside = (event)=>{
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) setIsOpen(false);
+    };
+    (0, _react.useEffect)(()=>{
+        document.addEventListener("mousedown", handleClickOutside);
+        return ()=>{
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "dropdown-filter",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: `dropdown ${isOpen ? "open" : ""}`,
+            ref: dropdownRef,
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    className: "dropdown-toggle",
+                    onClick: toggleDropdown,
+                    children: [
+                        selectedFilters.length > 1 ? `${selectedFilters.length} ${filterType}s` : `${filterType}`,
+                        isOpen ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                            className: "material-symbols-outlined",
+                            children: "expand_less"
+                        }, void 0, false, {
+                            fileName: "src/js/components/checkboxFilter.js",
+                            lineNumber: 46,
+                            columnNumber: 13
+                        }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                            className: "material-symbols-outlined",
+                            children: "expand_more"
+                        }, void 0, false, {
+                            fileName: "src/js/components/checkboxFilter.js",
+                            lineNumber: 48,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/js/components/checkboxFilter.js",
+                    lineNumber: 41,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "dropdown-options",
+                    children: allFilters.map((filter)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                            htmlFor: filter,
+                            className: "checkbox-label",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "checkbox",
+                                    id: filter,
+                                    name: "filter",
+                                    onChange: handleChange,
+                                    checked: selectedFilters.includes(filter)
+                                }, void 0, false, {
+                                    fileName: "src/js/components/checkboxFilter.js",
+                                    lineNumber: 54,
+                                    columnNumber: 15
+                                }, this),
+                                filter,
+                                " "
+                            ]
+                        }, filter, true, {
+                            fileName: "src/js/components/checkboxFilter.js",
+                            lineNumber: 53,
+                            columnNumber: 13
+                        }, this))
+                }, void 0, false, {
+                    fileName: "src/js/components/checkboxFilter.js",
+                    lineNumber: 51,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/js/components/checkboxFilter.js",
+            lineNumber: 40,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "src/js/components/checkboxFilter.js",
+        lineNumber: 39,
+        columnNumber: 5
+    }, this);
+}
+_s(CheckboxFilter, "uhOyve9TWk+bvhPJTPlaMsUEQAY=");
+_c = CheckboxFilter;
+exports.default = CheckboxFilter;
+var _c;
+$RefreshReg$(_c, "CheckboxFilter");
+
+  $parcel$ReactRefreshHelpers$74fe.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["1xC6H","cVgJb","ebWYT"], "ebWYT", "parcelRequirec6bf")
 
 //# sourceMappingURL=index.739bf03c.js.map
