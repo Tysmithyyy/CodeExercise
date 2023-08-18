@@ -12,7 +12,7 @@
   "author": "Tyler Smith",
   "license": "ISC",
   "private": true,
-  "hompage": "http://smithyyy.dev/CodeExercise",
+  "hompage": "http://code-exercise.smithyyy.dev/",
   "dependencies": {
     "fuse.js": "^6.6.2",
     "package.json": "^0.0.0",
