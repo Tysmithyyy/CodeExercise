@@ -7,7 +7,7 @@
     "build": "rm -Rf dist/ && parcel build src/views/index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
     "predeploy" : "npm run build",
-    "deploy" : "gh-pages -d build"
+    "deploy" : "gh-pages -d dist"
   },
   "author": "Tyler Smith",
   "license": "ISC",
