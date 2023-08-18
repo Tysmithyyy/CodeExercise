@@ -53,11 +53,15 @@ body {
 }
 
 .exercise-header {
-  background-color: #00a4bd;
+  background-color: $blue;
   color: $primary-background;
   text-align: center;
-  padding: 1rem 0;
+  padding: 1rem;
   margin: 2rem 0;
+
+  h1 {
+    font-size: 24px;
+  }
 }
 
 // CSS for exercise one
@@ -159,6 +163,13 @@ body {
 
 // CSS for mediaPage.js
 
+.media-page {
+  border: 1px solid $primary-text;
+  width: 95%;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
 .filters-container {
   display: flex;
   flex-direction: column;
@@ -234,12 +245,6 @@ body {
   }
 }
 
-.media-page {
-  border: 1px solid $primary-text;
-  width: 95%;
-  margin: auto;
-}
-
 // CSS for genre filter and year filter
 
 .dropdown-filter {
@@ -281,41 +286,35 @@ body {
 }
 
 .dropdown.open {
-  .triangle,
-  .triangle-border {
-    display: inline-block;
-  }
-
   .dropdown-options {
     border: 1px solid $primary-text;
     visibility: visible;
     max-height: 300px;
   }
-}
 
-.triangle,
-.triangle-border {
-  content: "";
-  display: none;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 10px solid white;
-  position: absolute;
-  width: 0;
-  height: 0;
-  top: 43px;
-  left: 25px;
-  margin: 0;
-  padding: 0;
-  z-index: 1;
-}
+  &:before,
+  &:after {
+    content: "";
+    display: inline-block;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white;
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 43px;
+    left: 25px;
+    margin: 0;
+    padding: 0;
+  }
 
-.triangle-border {
-  border-left: 12px solid transparent;
-  border-right: 12px solid transparent;
-  border-bottom: 12px solid $primary-text;
-  top: 41px;
-  left: 23px;
+  &:before {
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid $primary-text;
+    top: 42px;
+    left: 23px;
+  }
 }
 
 .dropdown-options {
@@ -469,6 +468,13 @@ input[type="checkbox"] {
     font-size: 14pt;
     font-weight: 700;
   }
+}
+
+.no-results {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 100px;
 }
 
 // end CSS for exercise two

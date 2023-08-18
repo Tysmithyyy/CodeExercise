@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 // Fuse.js for fuzzy search
 import Fuse from "fuse.js";
 import DisplayMoviesBooks from "./components/displayMoviesBooks.js";
-import GenreFilter from "./components/genreFilter.js";
-import YearFilter from "./components/yearFilter.js";
+import CheckboxFilter from "./components/checkboxFilter.js";
 import ToggleMovieBook from "./components/toggleMovieBook.js";
 import SearchBar from "./components/searchBar.js";
 import { fetchAllMediaData } from "./utils/apiService.js"; // api module
@@ -87,15 +86,17 @@ function MediaPage() {
       <div className="filters-container">
         <div className="media-filters">
           <div className="select-filters">
-            <GenreFilter
-              allGenres={allGenres}
-              onSelectGenre={handleGenreChange}
-              selectedGenres={selectedGenres}
+            <CheckboxFilter
+              allFilters={allGenres}
+              onSelectFilter={handleGenreChange}
+              selectedFilters={selectedGenres}
+              filterType="Genre"
             />
-            <YearFilter
-              allYears={allYears}
-              onSelectYear={handleYearChange}
-              selectedYears={selectedYears}
+            <CheckboxFilter
+              allFilters={allYears}
+              onSelectFilter={handleYearChange}
+              selectedFilters={selectedYears}
+              filterType="Year"
             />
           </div>
           <SearchBar 
