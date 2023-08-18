@@ -5,11 +5,14 @@
   "scripts": {
     "start": "parcel serve src/views/index.html --open",
     "build": "rm -Rf dist/ && parcel build src/views/index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -d build"
   },
-  "author": "HubSpot Applicant",
+  "author": "Tyler Smith",
   "license": "ISC",
   "private": true,
+  "hompage": "http://tysmithyyy.github.io/CodeExercise",
   "dependencies": {
     "fuse.js": "^6.6.2",
     "package.json": "^0.0.0",
@@ -21,6 +24,7 @@
     "@babel/cli": "^7.18.10",
     "@babel/core": "^7.18.13",
     "@babel/preset-env": "^7.18.10",
+    "gh-pages": "^6.0.0",
     "process": "^0.11.10"
   }
 }
