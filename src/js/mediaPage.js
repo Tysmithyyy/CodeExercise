@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 // Fuse.js for fuzzy search
-import Fuse from 'fuse.js';
-import DisplayMoviesBooks from './components/displayMoviesBooks.js';
-import GenreFilter from './components/genreFilter.js';
-import YearFilter from './components/yearFilter.js';
-import ToggleMovieBook from './components/toggleMovieBook.js';
-import SearchBar from './components/searchBar.js'
-import { fetchAllMediaData } from './utils/apiService.js'; // api module
-import { getAllGenres, getAllYears } from './utils/utils.js'; // utilities modules
+import Fuse from "fuse.js";
+import DisplayMoviesBooks from "./components/displayMoviesBooks.js";
+import GenreFilter from "./components/genreFilter.js";
+import YearFilter from "./components/yearFilter.js";
+import ToggleMovieBook from "./components/toggleMovieBook.js";
+import SearchBar from "./components/searchBar.js";
+import { fetchAllMediaData } from "./utils/apiService.js"; // api module
+import { getAllGenres, getAllYears } from "./utils/utils.js"; // utilities modules
 
 function MediaPage() {
   const [selectedGenres, setSelectedGenres] = useState([]);
   const [selectedYears, setSelectedYears] = useState([]);
   const [allGenres, setAllGenres] = useState([]);
   const [allYears, setAllYears] = useState([]);
-  const [mediaType, setMediaType] = useState('');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [mediaType, setMediaType] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [mediaData, setMediaData] = useState([]);
 
@@ -24,12 +24,10 @@ function MediaPage() {
       try {
         const allData = await fetchAllMediaData();
         setMediaData(allData);
-        const genres = getAllGenres(allData);
-        setAllGenres(genres);
-        const years = getAllYears(allData);
-        setAllYears(years);
+        setAllGenres(getAllGenres(allData));
+        setAllYears(getAllYears(allData));
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
     }
 
@@ -49,42 +47,46 @@ function MediaPage() {
     setMediaType(mediaType);
   };
 
-  const handleSearchQuery = (searchQuery) => {
-    const fuseOptions = {
-      keys: ['title'],
-      threshold: 0.5,
-    };
-  
-    const fuse = new Fuse(mediaData, fuseOptions);
-  
-    const searchResults = fuse.search(searchQuery);
+  const handleSearchQuery = (newSearchQuery) => {
+    setSearchQuery(newSearchQuery);
 
-    console.log('search results: ' + searchResults)
-    
-    setSearchResults(searchResults)
-  }
+    const fuseOptions = {
+      keys: ["title"],
+      threshold: 0.3,
+    };
+
+    const fuse = new Fuse(mediaData, fuseOptions);
+
+    const searchResults = fuse.search(newSearchQuery);
+
+    setSearchResults(searchResults);
+  };
 
   const clearFilters = () => {
     setSelectedGenres([]);
     setSelectedYears([]);
-    setMediaType('');
-    setSearchQuery('');
+    setMediaType("");
+    setSearchQuery("");
   };
 
   const filteredMovieData = mediaData.filter((media) => {
-    const matchesGenre = selectedGenres.length === 0 || selectedGenres.some((genre) => media.genre.includes(genre));
-    const matchesYear = selectedYears.length === 0 || selectedYears.includes(media.year);
-    const matchesType = mediaType === '' || media.type === mediaType;
-    const matchesSearch = media.title.includes(searchResults);
+    const matchesGenre =
+      selectedGenres.length === 0 ||
+      selectedGenres.some((genre) => media.genre.includes(genre));
+    const matchesYear =
+      selectedYears.length === 0 || selectedYears.includes(media.year);
+    const matchesType = mediaType === "" || media.type === mediaType;
+    const matchesSearch =
+      searchQuery === "" ||
+      searchResults.some((result) => result.item.title === media.title);
     return matchesGenre && matchesYear && matchesType && matchesSearch;
   });
 
   return (
     <div className="media-page">
-      <h1>Media Page</h1>
-      <div className='filters-container'>
-        <div>
-          <div className='select-filters'>
+      <div className="filters-container">
+        <div className="media-filters">
+          <div className="select-filters">
             <GenreFilter
               allGenres={allGenres}
               onSelectGenre={handleGenreChange}
@@ -96,15 +98,15 @@ function MediaPage() {
               selectedYears={selectedYears}
             />
           </div>
-          <ToggleMovieBook 
-            selectedType={mediaType}
-            onMediaTypeChange={handleMediaTypeChange}
-          />
-        </div>
-        <div className='other-filters'>
           <SearchBar 
             value={searchQuery} 
-            onChange={handleSearchQuery}
+            onChange={handleSearchQuery} 
+          />
+        </div>
+        <div className="other-filters">
+          <ToggleMovieBook
+            selectedType={mediaType}
+            onMediaTypeChange={handleMediaTypeChange}
           />
           <button onClick={clearFilters}>Clear Filters</button>
         </div>

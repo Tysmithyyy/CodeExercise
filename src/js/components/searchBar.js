@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 
 function SearchBar({ value, onChange }) {
   return (
-    <div className='search-container'>
-        <input
+    <div className="search-container">
+      <input
         type="text"
-        className='search-bar'
-        placeholder="Search by title..."
+        className="search-bar"
+        placeholder=""
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        />
-        <span className="material-symbols-outlined search-icon">search</span>
+      />
+      <span className="material-symbols-outlined search-icon">search</span>
     </div>
   );
 }
