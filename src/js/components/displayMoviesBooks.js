@@ -10,11 +10,23 @@ function DisplayMoviesBooks({ mediaData }) {
     e.target.src = noCover;
   };
 
+  const sortedMediaData = mediaData.slice().sort((a, b) => {
+    const titleA = a.title.toLowerCase();
+    const titleB = b.title.toLowerCase();
+    if (titleA < titleB) {
+      return -1;
+    }
+    if (titleA > titleB) {
+      return 1;
+    }
+    return 0;
+  });
+
   return (
     <div>
-      {mediaData.length > 0 ? (
+      {sortedMediaData.length > 0 ? (
         <div className="media-list">
-          {mediaData.map((media, index) => (
+          {sortedMediaData.map((media, index) => (
             <div className="media-card" key={index}>
               <img
                 src={media.poster}
