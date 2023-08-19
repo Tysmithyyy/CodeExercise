@@ -64,14 +64,15 @@ function MediaPage() {
 
   const handlePillChange = (filterType, valueToRemove) => {
     if (filterType === "Genre") {
-      setSelectedGenres(selectedGenres.filter(genre => genre !== valueToRemove));
+      setSelectedGenres(
+        selectedGenres.filter((genre) => genre !== valueToRemove)
+      );
     } else if (filterType === "Year") {
-      setSelectedYears(selectedYears.filter(year => year !== valueToRemove));
+      setSelectedYears(selectedYears.filter((year) => year !== valueToRemove));
     } else if (filterType === "Type") {
       setMediaType("");
     }
   };
-
 
   const clearFilters = () => {
     setSelectedGenres([]);
@@ -111,10 +112,7 @@ function MediaPage() {
               filterType="Year"
             />
           </div>
-          <SearchBar 
-            value={searchQuery} 
-            onChange={handleSearchQuery} 
-          />
+          <SearchBar value={searchQuery} onChange={handleSearchQuery} />
         </div>
         <div className="other-filters">
           <ToggleMovieBook
@@ -124,12 +122,12 @@ function MediaPage() {
           <button onClick={clearFilters}>Clear Filters</button>
         </div>
       </div>
-      <FilterPills 
-          selectedType={mediaType}
-          selectedYears={selectedYears}
-          selectedGenres={selectedGenres}
-          onChange={handlePillChange}
-        />
+      <FilterPills
+        selectedType={mediaType}
+        selectedYears={selectedYears}
+        selectedGenres={selectedGenres}
+        onChange={handlePillChange}
+      />
       <DisplayMoviesBooks mediaData={filteredMovieData} />
     </div>
   );

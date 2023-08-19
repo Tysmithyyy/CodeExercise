@@ -10,7 +10,7 @@ body {
 }
 
 .exercise-header {
-  background-color: #0079D1;
+  background-color: #0079d1;
   color: #f9f8f7;
   text-align: center;
   padding: 1rem;
@@ -92,7 +92,7 @@ body {
   font-weight: 700;
 }
 .testimonial-container a {
-  background-color: #0079D1;
+  background-color: #0079d1;
   transition: background-color 0.3s ease;
   color: white;
   text-transform: uppercase;
@@ -174,7 +174,7 @@ body {
 }
 .other-filters button {
   background-color: transparent;
-  color: #0079D1;
+  color: #0079d1;
   text-transform: uppercase;
   font-family: "Montserrat", sans-serif;
   font-size: 10pt;
@@ -189,7 +189,7 @@ body {
 }
 .other-filters button:focus {
   background-color: #eeebe8;
-  border-color: #0079D1;
+  border-color: #0079d1;
 }
 
 .dropdown-filter {
@@ -235,7 +235,8 @@ body {
   visibility: visible;
   max-height: 300px;
 }
-.dropdown.open:before, .dropdown.open:after {
+.dropdown.open:before,
+.dropdown.open:after {
   content: "";
   display: inline-block;
   border-left: 10px solid transparent;
@@ -285,11 +286,11 @@ body {
 .dropdown-options label:hover {
   background-color: #eeebe8;
 }
-.dropdown-options input[type=checkbox]:focus + label {
+.dropdown-options input[type="checkbox"]:focus + label {
   background-color: #eeebe8;
 }
 
-input[type=checkbox] {
+input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
   -mox-apperance: none;
@@ -301,7 +302,7 @@ input[type=checkbox] {
   height: 17px;
   margin-right: 10px;
 }
-input[type=checkbox]:checked:before {
+input[type="checkbox"]:checked:before {
   content: "";
   border: solid #5e5b62;
   border-width: 0 3px 3px 0;

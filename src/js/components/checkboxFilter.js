@@ -1,6 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 
-function CheckboxFilter({ allFilters, onSelectFilter, selectedFilters, filterType }) {
+function CheckboxFilter({
+  allFilters,
+  onSelectFilter,
+  selectedFilters,
+  filterType,
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
