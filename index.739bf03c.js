@@ -27105,6 +27105,8 @@ var _toggleMovieBookJs = require("./components/toggleMovieBook.js");
 var _toggleMovieBookJsDefault = parcelHelpers.interopDefault(_toggleMovieBookJs);
 var _searchBarJs = require("./components/searchBar.js");
 var _searchBarJsDefault = parcelHelpers.interopDefault(_searchBarJs);
+var _filterPillsJs = require("./components/filterPills.js");
+var _filterPillsJsDefault = parcelHelpers.interopDefault(_filterPillsJs);
 var _apiServiceJs = require("./utils/apiService.js"); // api module
 var _utilsJs = require("./utils/utils.js"); // utilities modules
 var _s = $RefreshSig$();
@@ -27153,6 +27155,11 @@ function MediaPage() {
         const searchResults = fuse.search(newSearchQuery);
         setSearchResults(searchResults);
     };
+    const handlePillChange = (filterType, valueToRemove)=>{
+        if (filterType === "Genre") setSelectedGenres(selectedGenres.filter((genre)=>genre !== valueToRemove));
+        else if (filterType === "Year") setSelectedYears(selectedYears.filter((year)=>year !== valueToRemove));
+        else if (filterType === "Type") setMediaType("");
+    };
     const clearFilters = ()=>{
         setSelectedGenres([]);
         setSelectedYears([]);
@@ -27185,7 +27192,7 @@ function MediaPage() {
                                         filterType: "Genre"
                                     }, void 0, false, {
                                         fileName: "src/js/mediaPage.js",
-                                        lineNumber: 89,
+                                        lineNumber: 101,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _checkboxFilterJsDefault.default), {
@@ -27195,13 +27202,13 @@ function MediaPage() {
                                         filterType: "Year"
                                     }, void 0, false, {
                                         fileName: "src/js/mediaPage.js",
-                                        lineNumber: 95,
+                                        lineNumber: 107,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/js/mediaPage.js",
-                                lineNumber: 88,
+                                lineNumber: 100,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarJsDefault.default), {
@@ -27209,13 +27216,13 @@ function MediaPage() {
                                 onChange: handleSearchQuery
                             }, void 0, false, {
                                 fileName: "src/js/mediaPage.js",
-                                lineNumber: 102,
+                                lineNumber: 114,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/js/mediaPage.js",
-                        lineNumber: 87,
+                        lineNumber: 99,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27226,7 +27233,7 @@ function MediaPage() {
                                 onMediaTypeChange: handleMediaTypeChange
                             }, void 0, false, {
                                 fileName: "src/js/mediaPage.js",
-                                lineNumber: 108,
+                                lineNumber: 120,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -27234,32 +27241,42 @@ function MediaPage() {
                                 children: "Clear Filters"
                             }, void 0, false, {
                                 fileName: "src/js/mediaPage.js",
-                                lineNumber: 112,
+                                lineNumber: 124,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/js/mediaPage.js",
-                        lineNumber: 107,
+                        lineNumber: 119,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/js/mediaPage.js",
-                lineNumber: 86,
+                lineNumber: 98,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _filterPillsJsDefault.default), {
+                selectedType: mediaType,
+                selectedYears: selectedYears,
+                selectedGenres: selectedGenres,
+                onChange: handlePillChange
+            }, void 0, false, {
+                fileName: "src/js/mediaPage.js",
+                lineNumber: 127,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _displayMoviesBooksJsDefault.default), {
                 mediaData: filteredMovieData
             }, void 0, false, {
                 fileName: "src/js/mediaPage.js",
-                lineNumber: 115,
+                lineNumber: 133,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/js/mediaPage.js",
-        lineNumber: 85,
+        lineNumber: 97,
         columnNumber: 5
     }, this);
 }
@@ -27274,7 +27291,7 @@ $RefreshReg$(_c, "MediaPage");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./components/displayMoviesBooks.js":"aprwr","./components/toggleMovieBook.js":"bMpva","./components/searchBar.js":"6eKpv","./utils/apiService.js":"8Al6l","./utils/utils.js":"1vl8p","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","fuse.js":"4xnao","./components/checkboxFilter.js":"9YTCp"}],"aprwr":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./components/displayMoviesBooks.js":"aprwr","./components/toggleMovieBook.js":"bMpva","./components/searchBar.js":"6eKpv","./utils/apiService.js":"8Al6l","./utils/utils.js":"1vl8p","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","fuse.js":"4xnao","./components/checkboxFilter.js":"9YTCp","./components/filterPills.js":"hz5bU"}],"aprwr":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$efb4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27310,27 +27327,36 @@ function DisplayMoviesBooks({ mediaData  }) {
                             lineNumber: 19,
                             columnNumber: 13
                         }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "card-text",
                             children: [
-                                media.title,
-                                " (",
-                                media.year,
-                                ")"
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                                    children: [
+                                        media.title,
+                                        " (",
+                                        media.year,
+                                        ")"
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/js/components/displayMoviesBooks.js",
+                                    lineNumber: 25,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                    children: [
+                                        "Genres:",
+                                        " ",
+                                        media.genre.map((genre)=>capitalizeFirstLetter(genre)).join(", ")
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/js/components/displayMoviesBooks.js",
+                                    lineNumber: 28,
+                                    columnNumber: 15
+                                }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/js/components/displayMoviesBooks.js",
                             lineNumber: 24,
-                            columnNumber: 13
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: [
-                                "Genres:",
-                                " ",
-                                media.genre.map((genre)=>capitalizeFirstLetter(genre)).join(", ")
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/js/components/displayMoviesBooks.js",
-                            lineNumber: 27,
                             columnNumber: 13
                         }, this)
                     ]
@@ -27348,7 +27374,7 @@ function DisplayMoviesBooks({ mediaData  }) {
             children: "Sorry, no results were found matching your search."
         }, void 0, false, {
             fileName: "src/js/components/displayMoviesBooks.js",
-            lineNumber: 37,
+            lineNumber: 39,
             columnNumber: 9
         }, this)
     }, void 0, false, {
@@ -27649,6 +27675,7 @@ function SearchBar({ value , onChange  }) {
                 type: "text",
                 className: "search-bar",
                 placeholder: "",
+                "aria-label": "Search bar",
                 value: value,
                 onChange: (e)=>onChange(e.target.value)
             }, void 0, false, {
@@ -27661,7 +27688,7 @@ function SearchBar({ value , onChange  }) {
                 children: "search"
             }, void 0, false, {
                 fileName: "src/js/components/searchBar.js",
-                lineNumber: 13,
+                lineNumber: 14,
                 columnNumber: 7
             }, this)
         ]
@@ -29144,6 +29171,70 @@ var _c;
 $RefreshReg$(_c, "CheckboxFilter");
 
   $parcel$ReactRefreshHelpers$74fe.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"hz5bU":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$0ac0 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$0ac0.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+function FilterPills({ selectedGenres , selectedYears , selectedType , onChange  }) {
+    const handlePillClick = (filterType, value)=>{
+        onChange(filterType, value);
+    };
+    const renderPills = (filters, filterType)=>{
+        return filters.map((filter, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                className: "filter-pill-button",
+                onClick: ()=>handlePillClick(filterType, filter),
+                children: [
+                    filter,
+                    " ",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        className: "pill-close-icon",
+                        "aria-label": "Remove" + filter + "filter",
+                        children: "✕"
+                    }, void 0, false, {
+                        fileName: "src/js/components/filterPills.js",
+                        lineNumber: 15,
+                        columnNumber: 26
+                    }, this)
+                ]
+            }, index, true, {
+                fileName: "src/js/components/filterPills.js",
+                lineNumber: 10,
+                columnNumber: 13
+            }, this));
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "filter-pills",
+        children: [
+            selectedGenres.length > 0 && renderPills(selectedGenres, "Genre"),
+            selectedYears.length > 0 && renderPills(selectedYears, "Year"),
+            selectedType && renderPills([
+                selectedType
+            ], "Type")
+        ]
+    }, void 0, true, {
+        fileName: "src/js/components/filterPills.js",
+        lineNumber: 21,
+        columnNumber: 9
+    }, this);
+}
+_c = FilterPills;
+exports.default = FilterPills;
+var _c;
+$RefreshReg$(_c, "FilterPills");
+
+  $parcel$ReactRefreshHelpers$0ac0.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
