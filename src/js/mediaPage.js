@@ -5,6 +5,7 @@ import DisplayMoviesBooks from "./components/displayMoviesBooks.js";
 import CheckboxFilter from "./components/checkboxFilter.js";
 import ToggleMovieBook from "./components/toggleMovieBook.js";
 import SearchBar from "./components/searchBar.js";
+import FilterPills from "./components/filterPills.js";
 import { fetchAllMediaData } from "./utils/apiService.js"; // api module
 import { getAllGenres, getAllYears } from "./utils/utils.js"; // utilities modules
 
@@ -61,6 +62,17 @@ function MediaPage() {
     setSearchResults(searchResults);
   };
 
+  const handlePillChange = (filterType, valueToRemove) => {
+    if (filterType === "Genre") {
+      setSelectedGenres(selectedGenres.filter(genre => genre !== valueToRemove));
+    } else if (filterType === "Year") {
+      setSelectedYears(selectedYears.filter(year => year !== valueToRemove));
+    } else if (filterType === "Type") {
+      setMediaType("");
+    }
+  };
+
+
   const clearFilters = () => {
     setSelectedGenres([]);
     setSelectedYears([]);
@@ -112,6 +124,12 @@ function MediaPage() {
           <button onClick={clearFilters}>Clear Filters</button>
         </div>
       </div>
+      <FilterPills 
+          selectedType={mediaType}
+          selectedYears={selectedYears}
+          selectedGenres={selectedGenres}
+          onChange={handlePillChange}
+        />
       <DisplayMoviesBooks mediaData={filteredMovieData} />
     </div>
   );

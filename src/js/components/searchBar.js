@@ -7,6 +7,7 @@ function SearchBar({ value, onChange }) {
         type="text"
         className="search-bar"
         placeholder=""
+        aria-label="Search bar"
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />

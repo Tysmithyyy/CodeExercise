@@ -21,15 +21,17 @@ function DisplayMoviesBooks({ mediaData }) {
               alt={media.title} 
               onError={handleImageError}
             />
-            <h2>
-              {media.title} ({media.year})
-            </h2>
-            <p>
-              Genres:{" "}
-              {media.genre
-                .map((genre) => capitalizeFirstLetter(genre))
-                .join(", ")}
-            </p>
+            <div className="card-text">
+              <h2>
+                {media.title} ({media.year})
+              </h2>
+              <p>
+                Genres:{" "}
+                {media.genre
+                  .map((genre) => capitalizeFirstLetter(genre))
+                  .join(", ")}
+              </p>
+            </div>
           </div>
         ))}
       </div>

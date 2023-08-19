@@ -6,7 +6,7 @@ $sans-serif-font: "Montserrat", sans-serif;
 $primary-background: #f9f8f7;
 $primary-text: #5e5b62;
 $orange: #fb6e05;
-$blue: #01a2e2;
+$blue: #0079D1;
 
 // Small screens breakpoint
 $screen-sm-min: 501px;
@@ -173,8 +173,8 @@ body {
 .filters-container {
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid $primary-text;
   padding: 15px;
+  padding-bottom: 0;
 
   @include sm {
     flex-direction: row;
@@ -306,6 +306,7 @@ body {
     left: 25px;
     margin: 0;
     padding: 0;
+    z-index: 2;
   }
 
   &:before {
@@ -326,6 +327,7 @@ body {
   overflow-y: auto;
   margin-top: 10px;
   transition: max-height 0.3s ease;
+  z-index: 2;
 }
 
 .dropdown-options {
@@ -374,7 +376,7 @@ input[type="checkbox"] {
     height: 9px;
     margin-left: 1px;
     transform: rotate(45deg) translate(-50%, -50%);
-    z-index: 2;
+    z-index: 1;
   }
 }
 
@@ -423,23 +425,58 @@ input[type="checkbox"] {
   color: $primary-text;
 }
 
+// CSS for filter pills
+
+.filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px;
+  padding-top: 0;
+}
+
+.filter-pill-button {
+  background-color: #f0f0f0;
+  color: $primary-text;
+  font-family: $sans-serif-font;
+  font-size: 9pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: solid $primary-text;
+  border-width: 0 0 2px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 1.5rem;
+  margin-right: 8px;
+  margin-bottom: 5px;
+  cursor: pointer;
+
+  span {
+    padding-left: 5px;
+  }
+}
+
 // CSS for display media
 
 .media-list {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   align-items: center;
-  padding: 5px;
+  flex-wrap: wrap;
+  border-top: 1px solid $primary-text;
+  padding: 10px 5px;
 
   @include sm {
     flex-direction: row;
+    align-items: normal;
   }
 }
 
 .media-card {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   width: 95%;
 
   @include sm {
@@ -456,17 +493,27 @@ input[type="checkbox"] {
 
   img {
     width: 95%;
-    margin: auto;
   }
+  
+}
+
+.card-text {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 95%;
+  margin-bottom: 10%;
 
   p {
     font-size: 10pt;
     font-weight: 700;
+    margin: 0;
   }
 
   h2 {
-    font-size: 14pt;
+    font-size: 13pt;
     font-weight: 700;
+    margin-bottom: 5px;
   }
 }
 
