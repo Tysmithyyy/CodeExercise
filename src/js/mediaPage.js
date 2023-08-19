@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from "react";
 // Fuse.js for fuzzy search
 import Fuse from "fuse.js";
+// Importing componentes
 import DisplayMoviesBooks from "./components/displayMoviesBooks.js";
 import CheckboxFilter from "./components/checkboxFilter.js";
 import ToggleMovieBook from "./components/toggleMovieBook.js";
 import SearchBar from "./components/searchBar.js";
 import FilterPills from "./components/filterPills.js";
-import { fetchAllMediaData } from "./utils/apiService.js"; // api module
-import { getAllGenres, getAllYears } from "./utils/utils.js"; // utilities modules
+// api module
+import { fetchAllMediaData } from "./utils/apiService.js"; 
+// utilities modules
+import { getAllGenres, getAllYears } from "./utils/utils.js"; 
 
 function MediaPage() {
+  // Setup state variables
   const [selectedGenres, setSelectedGenres] = useState([]);
   const [selectedYears, setSelectedYears] = useState([]);
   const [allGenres, setAllGenres] = useState([]);
@@ -19,6 +23,7 @@ function MediaPage() {
   const [searchResults, setSearchResults] = useState([]);
   const [mediaData, setMediaData] = useState([]);
 
+  // Perform data fetching, and get arrays that will be used for filters
   useEffect(() => {
     async function fetchData() {
       try {
@@ -34,7 +39,7 @@ function MediaPage() {
     fetchData();
   }, []);
 
-  // Handle genre and year changes
+  // Handle changes from different filter components
   const handleGenreChange = (selectedGenres) => {
     setSelectedGenres(selectedGenres);
   };
@@ -47,6 +52,7 @@ function MediaPage() {
     setMediaType(mediaType);
   };
 
+  // Handle a search query, and configure and run a fuzzy search using fuse.js
   const handleSearchQuery = (newSearchQuery) => {
     setSearchQuery(newSearchQuery);
 
@@ -62,6 +68,7 @@ function MediaPage() {
     setSearchResults(searchResults);
   };
 
+  // Handle when a filter pill is removed, and remove that filter from the approprate filter type
   const handlePillChange = (filterType, valueToRemove) => {
     if (filterType === "Genre") {
       setSelectedGenres(
@@ -74,6 +81,7 @@ function MediaPage() {
     }
   };
 
+  // Clear filters when the "Clear Filters" button is pressed
   const clearFilters = () => {
     setSelectedGenres([]);
     setSelectedYears([]);
@@ -81,6 +89,7 @@ function MediaPage() {
     setSearchQuery("");
   };
 
+  // All filtering is handled here and the resulting data is send to the display media component to be rendered
   const filteredMovieData = mediaData.filter((media) => {
     const matchesGenre =
       selectedGenres.length === 0 ||

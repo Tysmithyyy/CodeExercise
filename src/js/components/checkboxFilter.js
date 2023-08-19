@@ -1,14 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 
-function CheckboxFilter({
-  allFilters,
-  onSelectFilter,
-  selectedFilters,
-  filterType,
-}) {
+function CheckboxFilter({ allFilters, onSelectFilter, selectedFilters, filterType, }) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
+  // Creates an array of selected filters each time an option is checked.
   const handleChange = (event) => {
     const { id, checked } = event.target;
     const updatedFilters = checked
@@ -18,6 +14,7 @@ function CheckboxFilter({
     onSelectFilter(updatedFilters);
   };
 
+  // Makes sure that the dropdown gets the open class when clicked open. Also makes sure that the filters are scrolled to the top each time it is opened.
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
     if (!isOpen) {
@@ -27,12 +24,14 @@ function CheckboxFilter({
     }
   };
 
+  // Closes the open dropdown when a click is detected outside the options dropdown. 
   const handleClickOutside = (event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setIsOpen(false);
     }
   };
 
+  // Listener to call above function on a click
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {

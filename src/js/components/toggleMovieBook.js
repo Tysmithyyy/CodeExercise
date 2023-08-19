@@ -1,5 +1,7 @@
 import React from "react";
 
+// Component used for the radio buttons to select the type of media to be displayed.
+
 function ToggleMovieBook({ selectedType, onMediaTypeChange }) {
   return (
     <div className="toggle-container">

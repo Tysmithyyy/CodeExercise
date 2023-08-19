@@ -6,10 +6,12 @@ function capitalizeFirstLetter(string) {
 }
 
 function DisplayMoviesBooks({ mediaData }) {
+  // Function to handle media without cover art, replaces the src url with a static default image.
   const handleImageError = (e) => {
     e.target.src = noCover;
   };
 
+  // Function to sort the data by title before it is rendered. This is done after other filters.
   const sortedMediaData = mediaData.slice().sort((a, b) => {
     const titleA = a.title.toLowerCase();
     const titleB = b.title.toLowerCase();
@@ -22,6 +24,7 @@ function DisplayMoviesBooks({ mediaData }) {
     return 0;
   });
 
+  // Before rendering the object map of media, the jsx checks if there are no results and displays a message if there aren't
   return (
     <div>
       {sortedMediaData.length > 0 ? (

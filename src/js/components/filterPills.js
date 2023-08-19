@@ -1,15 +1,12 @@
 import React from "react";
 
-function FilterPills({
-  selectedGenres,
-  selectedYears,
-  selectedType,
-  onChange,
-}) {
+function FilterPills({ selectedGenres, selectedYears, selectedType, onChange,}) {
+  // Trigger the change function to remove a pill when clicked
   const handlePillClick = (filterType, value) => {
     onChange(filterType, value);
   };
 
+  // Render pills function to be called for each filter type
   const renderPills = (filters, filterType) => {
     return filters.map((filter, index) => (
       <button
