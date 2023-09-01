@@ -2,13 +2,13 @@ import '../styles/index.css';
 import { createRoot } from 'react-dom/client';
 import MediaPage from './mediaPage';
 
-function MediaPage() {
+function MediaPageComponent() {
     return <MediaPage />
 }
 
 // Renders mediaPage.js to index.html
 const domNode = document.getElementById('media-page');
 const root = createRoot(domNode);
-root.render(<MediaPage />);
+root.render(<MediaPageComponent />);
 
 console.log('App Started');
